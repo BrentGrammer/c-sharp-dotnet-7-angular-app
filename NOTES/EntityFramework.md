@@ -5,6 +5,12 @@
 - First level caching out of the box (repeated querying returns from cache instead of network)
 - Convention first framework
 
+### Sqlite
+- Note Sqlite is good for development - it is just a in memory db that is a file on your system (no engine extra software etc.).
+- Not suitable for production
+- To view db in VS Code install Sqlite extension: alexcvzz.vscode-sqlite
+  - Ctrl-Shift-P to open command pallette > SQLite: Open Database
+  - Select your db and then you'll then see a new SQLITE EXPLORER Section in the left side tab
 ## Definitions
 
 - Navigation Prop - Any property in a model that is of type or linked to another model/entity
@@ -90,7 +96,7 @@ namespace DatingApp.API.Data
   - Make sure you are in the folder of your project (i.e. /API)
   - `-o` means where you want the migrations to go, what folder.
 - `dotnet ef migrations add MyMigrationName`
-- `dotnet ef database update`
+- `dotnet ef database update` - run the migration
 - NOTE: if you get errors you might want to run `dotnet build` to get more info - as part of the migrations, it builds your app and if there are errors you need to run it to get more info on what went wrong.
 
 1. Start web server back up if in development
