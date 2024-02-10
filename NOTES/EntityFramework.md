@@ -1,9 +1,31 @@
 # Entity Framework
 
+- ORM that translates code into SQL commands that update the tables in the database
+- Gives us Concurrency handling - uses optimistic concurrency by default
+- First level caching out of the box (repeated querying returns from cache instead of network)
+- Convention first framework
+
 ## Definitions
 
 - Navigation Prop - Any property in a model that is of type or linked to another model/entity
 - DbContext - abstraction used to save and load data to the database
+  - acts as bridge between our domain and database
+  - We write Linq queries (`DbContext.Users.Add(new User {id = 4, Name = John})` > Database Provider (i.e. Sqlite postgres etc) > `INSERT INTO Users (Id, Name) VALUES (4,John)`)
+
+## Installing Entity Framework to a Project
+
+- In VS Code add the extension: `NuGet Gallery` for managing nuget packages
+- Show all commands pallette (Ctrl-Shift-P) > Open Nuget Gallery
+- Install package for the db you are using (we use Sqlite in development for ex.): `Microsoft.EntityFrameworkCore.Sqlite` package (make sure the version matches your dotnet version) - Note: do NOT install ...Sqlite.Core package of same name.
+- Install `Microsoft.EntityFrameworkCore.Design` package to enable code first migrations
+- Make sure you see the packages in `API.csproj`:
+
+```xml
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
+      ...
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.15" />
+```
 
 ## Add a new Entity (table)
 
