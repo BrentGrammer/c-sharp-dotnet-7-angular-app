@@ -99,7 +99,7 @@ namespace DatingApp.API.Data
         // LAZY LOADING to address warnings about unnecessary include usage with navprops from the CountAsync() call in PagedList.cs (because at that time it executes the IQueryable before the included Photos are used or returned)
         // Now in the dating repository, you can remove all include statements! EF will know what it needs to use and include automatically
         x.UseLazyLoadingProxies();
-        x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+        x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")); // comes from appsettings.json files (appsettings.Development.json when in Development mode)
       });
 
       ConfigureServices(services);
