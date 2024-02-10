@@ -30,7 +30,8 @@
 
 - cd into the project (`cd API`)
 - `dotnet run`
-  - listening port is randomly selected
+  - listening port is randomly selected - need to update launch settings (see below)
+- use `dotnet watch` to get hot reloading
 
 ## Launch Settings
 
@@ -41,3 +42,22 @@
 - You can set a standard port for your API: `"applicationUrl": "http://localhost:5000;https://localhost:5001",`
   - run on http and https (5000 and 5001)
 - You can optionally remove the other https and IIS Express blocks so you only have http block
+  - we just need a single profile to run over the ports specified
+
+### appsettings.json
+
+- Can use configuration info in this file in code at runtime
+  - `<project>\appsettings.Development.json`
+  - Update logging to information: `"Microsoft.AspNetCore": "Information"` to get more info while developing
+
+### Program.cs
+
+- Entry point to application
+- Can add services in the top part
+- The bottom part is the HTTP request pipeline
+  - Can use middleware to manipulate the http requests and responses here. i.e. `app.UseAuthorization();`
+
+## Troubleshooting
+
+- HTTPS not working (if you go to the port and get a certificate expired error)
+  - run `dotnet dev-certs https --trust`
