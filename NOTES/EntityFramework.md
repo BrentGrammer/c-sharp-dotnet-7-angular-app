@@ -27,6 +27,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.15" />
 ```
 
+### Add the dotnet-ef cli tool to run migrations
+
+- https://www.nuget.org/packages/dotnet-ef/#supportedframeworks-body-tab
+  - `dotnet tool install --global dotnet-ef --version 7.0.15`
+
 ## Add a new Entity (table)
 
 1. Create the model class
@@ -75,10 +80,18 @@ namespace DatingApp.API.Data
 }
 ```
 
+### Migrations
+
+(needs dotnet-ef cli tool installed)
+
 1. Run migration script and apply changes to the database
 
+- Initial Migration: `dotnet ef migrations add InitialCreate -o Data/Migrations`
+  - Make sure you are in the folder of your project (i.e. /API)
+  - `-o` means where you want the migrations to go, what folder.
 - `dotnet ef migrations add MyMigrationName`
 - `dotnet ef database update`
+- NOTE: if you get errors you might want to run `dotnet build` to get more info - as part of the migrations, it builds your app and if there are errors you need to run it to get more info on what went wrong.
 
 1. Start web server back up if in development
 
