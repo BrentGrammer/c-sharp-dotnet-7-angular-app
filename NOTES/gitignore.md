@@ -1,5 +1,9 @@
 # What to ignore in a .NET App
 
+- You can create gitignore with dotnet cli
+- `dotnet new gitignore`
+- Usually add appsettings.json because it will have secrets.
+
 - [Gitignore.io list for .NET](https://www.toptal.com/developers/gitignore/api/aspnetcore)
 - there is a command you can use to generate a gitignore file with dotnet tools: `dotnet new gitignore`
   - Note this does not ignore appsettings.json - the best practice is to not store secrets in that file anyways
