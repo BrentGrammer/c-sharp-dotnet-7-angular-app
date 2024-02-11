@@ -477,4 +477,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # secrets
-appsettings.json
+API/appsettings.json
