@@ -3,9 +3,18 @@
 ## Prerequisites
 
 - dotnet sdk (v7)
-- node (v18)
+- node.js (v18)
+- [Angular 16 CLI](https://angular.io/guide/setup-local)
+  - `npm install -g @angular/cli@16`
 
 ## Starting the app
+
+### Starting the client:
+
+- `cd client`
+- `ng serve`
+
+### Starting the server:
 
 - open a terminal
 - `cd API`
