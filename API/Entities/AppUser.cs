@@ -11,5 +11,5 @@ public class AppUser
 
     // since C# 6 strings are assumed to be non-null, now you need to add ? to make it optional
     // you can turn off this flag in API.csproj (project file) and changing <Nullable> flag to disable
-    public string UserName { get; set; }
+    public string UserName { get; set; } // note that though we use Pascal case here, but the response will return json userName by convention
 }
