@@ -50,6 +50,10 @@
   - `<project>\appsettings.Development.json`
   - Update logging to information: `"Microsoft.AspNetCore": "Information"` to get more info while developing
 
+### global.json
+- If you need to make a project with an older dotnet sdk version or to specify the version explicitly, create a global.json
+- `dotnet new globaljson`
+
 ### Program.cs
 
 - Entry point to application
