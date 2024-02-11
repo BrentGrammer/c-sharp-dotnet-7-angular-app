@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**
  * This is responsible for bootstrapping config for our application.
@@ -20,7 +21,8 @@ import { AppComponent } from './app.component';
     // add any other modules that need to be used
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, // we need this angular module to make http requests
+    HttpClientModule,
+    BrowserAnimationsModule, // we need this angular module to make http requests
   ],
   providers: [],
   bootstrap: [AppComponent],
