@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     // add any other modules that need to be used
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule, // we need this angular module to make http requests
   ],
   providers: [],
   bootstrap: [AppComponent],
