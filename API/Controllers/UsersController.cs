@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")] // http://.../api/users - name of the class without Controller. // is a GET method by default
-public class UsersController : ControllerBase
+public class UsersController : BaseApiController
 {
     // make the data context available to rest of class (outside of contstructor)
     private readonly DataContext _context;
