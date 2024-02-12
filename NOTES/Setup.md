@@ -50,6 +50,11 @@
   - `<project>\appsettings.Development.json`
   - Update logging to information: `"Microsoft.AspNetCore": "Information"` to get more info while developing
 
+### Hot reloading with watch doesn't work well
+- use `dotnet watch --no-hot-reload`
+  - since watch is not reliable with hot reload (causing confusing bugs)
+  - Just uses watch with file watcher and will work more reliably when making simple code updates. Will restart itself with another dotnet run on changes instead of hot reloading (a little slower but more reliable)
+
 ### global.json
 - If you need to make a project with an older dotnet sdk version or to specify the version explicitly, create a global.json
 - `dotnet new globaljson`
