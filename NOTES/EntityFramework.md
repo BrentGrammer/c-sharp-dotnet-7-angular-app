@@ -6,11 +6,13 @@
 - Convention first framework
 
 ### Sqlite
+
 - Note Sqlite is good for development - it is just a in memory db that is a file on your system (no engine extra software etc.).
 - Not suitable for production
 - To view db in VS Code install Sqlite extension: alexcvzz.vscode-sqlite
   - Ctrl-Shift-P to open command pallette > SQLite: Open Database
   - Select your db and then you'll then see a new SQLITE EXPLORER Section in the left side tab
+
 ## Definitions
 
 - Navigation Prop - Any property in a model that is of type or linked to another model/entity
@@ -146,3 +148,13 @@ namespace DatingApp.API.Data
     public virtual ICollection<Like> Likers { get; set; }
     // etc for all nav props
 ```
+
+### Saving Data
+
+- You need to add it to the data context and then save the changes
+  - Data context just tracks changes but doesn't actually update the database
+
+## Params
+
+- Query strings can be passed in as arguments and binding will happen automatically
+  - `?username=dave&password=password` can be accessed with `(string username, string password)` in the controller

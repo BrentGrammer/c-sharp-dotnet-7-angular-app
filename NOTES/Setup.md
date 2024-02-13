@@ -54,7 +54,7 @@
 - use `dotnet watch --no-hot-reload`
   - since watch is not reliable with hot reload (causing confusing bugs)
   - Just uses watch with file watcher and will work more reliably when making simple code updates. Will restart itself with another dotnet run on changes instead of hot reloading (a little slower but more reliable)
-
+  - Note that if you do some things like add a new controller, you need to restart the command/server
 ### global.json
 - If you need to make a project with an older dotnet sdk version or to specify the version explicitly, create a global.json
 - `dotnet new globaljson`
@@ -70,3 +70,13 @@
 
 - HTTPS not working (if you go to the port and get a certificate expired error)
   - run `dotnet dev-certs https --trust`
+
+## Setup/start a Debugger
+- In VS Code open a command pallete (CTRL-SHFT-P) and look for `.NET: Generate Assets for Build and Debug`
+  - This can create the file in .vscode/ at the top level of repo
+- Click the debug option icon on the left side menu in VS Code
+- Stop any running servers
+- You can have dropdown options to launch and attach - Try launch first as it usually works better.
+  - Press the Play button
+- Alternatively, start the server with `dotnet watch --no-hot-reload` and choose Attach from the debug dropdown.
+  - Search for the name of your project (i.e. "API" etc.) and select that to attach a debugger.
