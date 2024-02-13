@@ -158,3 +158,6 @@ namespace DatingApp.API.Data
 
 - Query strings can be passed in as arguments and binding will happen automatically
   - `?username=dave&password=password` can be accessed with `(string username, string password)` in the controller
+
+## Validation
+- Using `[ApiController]` decorator auto binds request args in the controller handlers and automatically checks validation before getting to the controller.
