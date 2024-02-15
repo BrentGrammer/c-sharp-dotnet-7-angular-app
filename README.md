@@ -33,4 +33,10 @@
 
 - open a terminal
 - `cd API`
-- `dotnet watch` or `dotnet run`
+- `dotnet watch --no-hot-reload` or `dotnet run`
+  - (hot reload is currently unreliable)
+
+
+## Notes
+- When creating new classes/files the namespace is defaulted to API. You need to specify the namespace further manually at the time of this writing.
+`namespace API` -> `namespace API.MyFolder`
