@@ -3,6 +3,7 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +12,17 @@ namespace API.Controllers;
 public class AccountController : BaseApiController
 {
     private readonly DataContext _context;
-    public AccountController(DataContext context)
+    private readonly ITokenService _tokenService;
+
+    // note we don't need to initialize _tokenService since it is injected by the framework and will be available by that name
+    public AccountController(DataContext context, ITokenService tokenService)
     {
         _context = context;
+        _tokenService = tokenService;
     }
 
     [HttpPost("register")] // POST: api/account
-    public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto) // params is an object since the body to a POST is an obj
+    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto) // params is an object since the body to a POST is an obj
     {
         // note: the json prop names are lowercase, but thenames in the DTO are pascal case - this is convention and will be converted appropriately
         if (await UserExists(registerDto.Username)) return BadRequest("Username is taken.");
@@ -36,11 +41,15 @@ public class AccountController : BaseApiController
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        return user;
+        return new UserDto
+        {
+            Username = user.UserName,
+            Token = _tokenService.CreateToken(user)
+        };
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
         // we can use single or first or default here - single is fine because there will always just be one user as all users are unique
         var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
@@ -59,7 +68,11 @@ public class AccountController : BaseApiController
             if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
         }
 
-        return user;
+        return new UserDto
+        {
+            Username = user.UserName,
+            Token = _tokenService.CreateToken(user)
+        };
     }
     // Helper method - make async because we need to go to our database to check users
     private async Task<bool> UserExists(string username)
