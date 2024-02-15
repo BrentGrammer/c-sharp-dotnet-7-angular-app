@@ -1,10 +1,12 @@
 ﻿using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
+[Authorize] // protects all routes unless overriden in controller
 public class UsersController : BaseApiController
 {
     // make the data context available to rest of class (outside of contstructor)
@@ -16,6 +18,7 @@ public class UsersController : BaseApiController
     }
 
     // HTTP method handlers should always be async and return a Task
+    [AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
