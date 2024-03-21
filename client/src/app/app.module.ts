@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { HomeComponent } from './home/home.component';
 
 /**
  * This is responsible for bootstrapping config for our application.
@@ -20,6 +21,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     // declare modules this module needs to load
     AppComponent,
     NavComponent,
+    HomeComponent,
   ],
   imports: [
     // add any other modules that need to be used
