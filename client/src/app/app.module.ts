@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
+import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 /**
  * This is responsible for bootstrapping config for our application.
@@ -16,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     // declare modules this module needs to load
     AppComponent,
+    NavComponent,
   ],
   imports: [
     // add any other modules that need to be used
@@ -23,6 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule, // we need this angular module to make http requests
+    FormsModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
