@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 /**
  * This is responsible for bootstrapping config for our application.
@@ -22,6 +23,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavComponent,
     HomeComponent,
+    RegisterComponent,
   ],
   imports: [
     // add any other modules that need to be used
