@@ -149,5 +149,11 @@ constructor(public accountService: AccountService, private router: Router) {}
   }
 ```
 
+### Route Guards
+
+- generate with `ng g g _guards/auth` etc - name your guards as you want
+  - can choose 'canActivate' from the menu options
+
 ## Packages
+
 - Toasts: `ngx-toastr`
