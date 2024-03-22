@@ -84,3 +84,12 @@ export class RegisterComponent {
   (cancelRegister)="cancelRegisterMode($event)"
 ></app-register>
 ```
+
+## Services
+
+- Services are singletons and are a good place to share data in the app.
+
+## Angular Routing
+
+- Choosing 'yes' when bootstrapping an angular app creates a app-routing.module.ts file that imports and exports the routes module (AppRoutingModule is put in app module by default)
+- the `routes` array in app-routing.module.ts contains a list of the app routes
