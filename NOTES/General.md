@@ -93,3 +93,42 @@ export class RegisterComponent {
 
 - Choosing 'yes' when bootstrapping an angular app creates a app-routing.module.ts file that imports and exports the routes module (AppRoutingModule is put in app module by default)
 - the `routes` array in app-routing.module.ts contains a list of the app routes
+
+```javascript
+const routes: Routes = [
+  { path: "", component: HomeComponent },
+  { path: "members", component: MemberListComponent },
+  { path: "members/:id", component: MemberDetailComponent },
+  { path: "lists", component: ListsComponent },
+  { path: "messages", component: MessagesComponent },
+  { path: "**", component: HomeComponent, pathMatch: "full" }, // Wildcard to catch no matches
+];
+```
+
+- use the `<router-outlet></router-outlet>` in the app template
+
+```html
+<div class="container" style="margin-top: 100px;">
+  <router-outlet></router-outlet>
+</div>
+```
+
+- Use `routerLink` attribute provided by angular on the html template elements:
+  - Make sure to include the forward slask `/` in the route
+  - use the `routerLinkActive` to provide a class to use when the link is active
+
+```html
+<li class="nav-item">
+  <a class="nav-link" routerLink="/members" routerLinkActive="active"
+    >Matches</a
+  >
+</li>
+<li class="nav-item">
+  <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" routerLink="/messages" routerLinkActive="active"
+    >Messages</a
+  >
+</li>
+```
