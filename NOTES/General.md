@@ -153,6 +153,7 @@ constructor(public accountService: AccountService, private router: Router) {}
 
 - generate with `ng g g _guards/auth` etc - name your guards as you want
   - can choose 'canActivate' from the menu options
+- see commit for auth guard for changes.
 
 ## Packages
 
