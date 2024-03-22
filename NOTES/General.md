@@ -132,3 +132,22 @@ const routes: Routes = [
   >
 </li>
 ```
+
+### Programmatic Routing
+
+- use Angular Router dependency and router.navigateByUrl
+
+```javascript
+// inject Angular Router
+constructor(public accountService: AccountService, private router: Router) {}
+
+  login() {
+    this.accountService.login(this.model).subscribe({
+      next: () => this.router.navigateByUrl('/members'),
+      error: (error) => console.log(error),
+    });
+  }
+```
+
+## Packages
+- Toasts: `ngx-toastr`
