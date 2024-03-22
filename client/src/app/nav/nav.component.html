@@ -23,9 +23,6 @@
           >Messages</a
         >
       </li>
-      <li class="nav-item" (click)="logout()">
-        <a class="nav-link">Logout</a>
-      </li>
     </ul>
 
     <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
@@ -33,7 +30,9 @@
         >Welcome user</a
       >
       <div class="dropdown-menu" *dropdownMenu>
-        <a class="dropdown-item">Edit profile</a>
+        <a class="dropdown-item" (click)="logout()" data-bs-toggle="dropdown"
+          >Logout</a
+        >
       </div>
     </div>
     <form
