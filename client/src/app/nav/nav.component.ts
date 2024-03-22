@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../_services/account.service';
+import { Router } from '@angular/router';
 // import { Observable, of } from 'rxjs';
 
 @Component({
@@ -20,20 +21,19 @@ export class NavComponent {
    * currentUser$ observable.
    */
   // make account service public to use it directly in the template to check current user
-  constructor(public accountService: AccountService) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
+      next: () => this.router.navigateByUrl('/members'),
       error: (error) => console.log(error),
     });
   }
 
   logout() {
     this.accountService.logout(); // removes user from localstorage
+    this.router.navigateByUrl('/');
   }
 }
