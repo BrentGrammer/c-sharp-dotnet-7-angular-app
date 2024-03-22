@@ -158,3 +158,9 @@ constructor(public accountService: AccountService, private router: Router) {}
 ## Packages
 
 - Toasts: `ngx-toastr`
+
+## Creating Common/Shared modules
+
+- Clean up app module ts file
+- Create module with angular ci
+  - `ng g m _modules/shared --flat` //--flat will not create another folder shared.
