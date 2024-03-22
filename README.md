@@ -36,7 +36,13 @@
 - `dotnet watch --no-hot-reload` or `dotnet run`
   - (hot reload is currently unreliable)
 
+### Using SQLite Explorer
+- CMD SHFT P (command pallette shortcut) > SQLite Open Database > choose database
+- In VS Code left side bar menu, Choose SQLITE EXPLORER collapse menu to explore db.
 
 ## Notes
 - When creating new classes/files the namespace is defaulted to API. You need to specify the namespace further manually at the time of this writing.
 `namespace API` -> `namespace API.MyFolder`
+
+## Troubleshooting
+- Reload VS Code with Command Pallette (CMD SHFT P) and choose Reload Window

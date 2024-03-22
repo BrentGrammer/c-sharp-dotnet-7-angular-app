@@ -30,9 +30,24 @@ export class AccountService {
       })
     );
   }
+
+  register(model: any) {
+    return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
+      map((user) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.currentUserSource.next(user); // the .next() method is being used to emit a new value to subscribers of the currentUser$ observable
+        }
+        // IMPORTANT: Remember to return what the top method (http.post here) needs in the map method, otherwise you will get undefined returned.
+        // this is for demonstration purposes only and we actually don't use this information or need it returned here
+        return user;
+      })
+    );
+  }
+
   // helper setter that our components can use
   setCurrentUser(user: User) {
-    this.currentUserSource.next(user);
+    this.currentUserSource.next(user); // the .next() method is being used to emit a new value to subscribers of the currentUser$ observable
   }
 
   logout() {
